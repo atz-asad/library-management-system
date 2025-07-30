@@ -1,0 +1,53 @@
+// Use DBML to define your database structure
+// Docs: https://dbml.dbdiagram.io/docs
+
+Table student{
+  id integer [primary key]
+  name varchar
+  email varchar
+  phone varchar
+  studentid varchar
+  photo varchar
+  address varchar
+  createdAt datetime
+  updateAt datetime
+}
+
+Table book{
+  id integer [primary key]
+  title varchar
+  author varchar
+  cover varchar
+  isbn int [unique]
+  copies int [default: 1]
+  available_copy int
+  createAt datetime
+  updateAt datetime
+}
+
+Table borrowing{
+  id integer [primary key]
+  student_id int
+  book_id int
+  issue_date datetime
+  return_date datetime
+  status varchar [default: "pending"] //pending returned overdue
+  createdAt datetime
+  updateAt datetime
+}
+
+Table reservation{
+  int integer [primary key]
+  student_id int
+  book_id int
+  borrowing_id int
+  status varchar [default: "pending"] //pending available
+  createdAt datetime
+  updateAt datetime
+}
+
+Ref borrowing: student.id > borrowing.student_id
+Ref borrowing: book.id > borrowing.book_id
+Ref reservation: borrowing.id > reservation.borrowing_id
+
+
