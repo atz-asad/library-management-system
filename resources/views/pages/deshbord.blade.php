@@ -1,8 +1,9 @@
-@extends('layouts.app');
 
+@extends('layouts.app')
 
 @section('main')
-
+  <!-- Main Wrapper -->
+  <div class="main-wrapper">
 
     <!-- Page Wrapper -->
     <div class="page-wrapper">
@@ -137,9 +138,12 @@
 
           </div>
         </div>
-        
+
       </div>
     </div>
     <!-- /Page Wrapper -->
+
+  </div>
+  <!-- /Main Wrapper -->
 
 @endsection

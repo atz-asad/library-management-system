@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Book;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class BookController extends Controller
 {
@@ -20,7 +21,7 @@ class BookController extends Controller
      */
     public function create()
     {
-        //
+        return view('book.create');
     }
 
     /**
@@ -28,7 +29,38 @@ class BookController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // return $request -> all();
+        $request -> validate([
+            'title' => "required",
+            'cover' => "required|mimes:png,jpg,jpeg,gif|max:1024"
+        ]);
+
+        // Upload Cover Photo 
+
+        //Genarate a file name
+
+        $image = $request->file('cover');
+
+        $fileName = md5(rand(1000, 100000) . '_' . time()) . '.' . $image->getClientOriginalExtension();
+
+        $image -> move(public_path('media/book'), $fileName);
+
+        // DB::table('galleries') -> insert([
+        //     "image_url" => $fileName,
+        // ]);
+
+        // data Store
+        DB::table ('books') -> insert([
+            "title"             => $request -> title,
+            "author"            => $request ->  author,
+            "isbn"              => $request ->  isbn,
+            "copy"              => $request ->  copy,
+            "cover"             => $fileName,
+            "available_copy"    => $request ->  copy,
+            "created_at"        => now(),
+        ]);
+
+        return back()->with('success', 'Book Created Successfully!');
     }
 
     /**

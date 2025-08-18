@@ -4,10 +4,12 @@ use App\Http\Controllers\BookController;
 use App\Http\Controllers\StudentController;
 use Illuminate\Support\Facades\Route;
 
-Route::get("/", function(){
-    return view('pages.deshboard');
+
+Route::get('/', function(){
+    return view('pages/deshbord');
 });
 
 
-Route::resource("/student" , StudentController::class);
-Route::resource("/books" , BookController::class);
+
+Route::resource("/student", StudentController::class);
+Route::resource("/books", BookController::class);
