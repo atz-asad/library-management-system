@@ -13,7 +13,13 @@ class BookController extends Controller
      */
     public function index()
     {
-        return view('book.index');
+
+        // get all books
+        $books = DB::table('books') -> get();
+
+        return view('book.index', [
+            'books' => $books
+        ]);
     }
 
     /**
@@ -32,6 +38,7 @@ class BookController extends Controller
         // return $request -> all();
         $request -> validate([
             'title' => "required",
+            'author' => "required",
             'cover' => "required|mimes:png,jpg,jpeg,gif|max:1024"
         ]);
 

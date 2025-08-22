@@ -15,13 +15,11 @@
       </div>
       <!-- /Page Header -->
 
-      @if (Session::has('success'))
-        <div class="alert alert-success">
-          {{ Session::get('success') }}
+      <div class="row">
+        <div class="col-xl-10">
+          @include('layouts.comonents.message')
         </div>
-      @endif
-
-
+      </div>
       <div class="row">
         <div class="col-xl-10 d-flex">
           <div class="card flex-fill">
