@@ -6,4 +6,7 @@ Complete - Library Management System - Part 02
 
 https://www.youtube.com/watch?v=DLuKpjtT2-8
 running
-29 min running
+50 min running
+
+
+public function store(Request $request) concept clere hoi ni

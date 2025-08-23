@@ -9,7 +9,7 @@
       <div class="page-header">
         <div class="row">
           <div class="col-sm-12">
-            <h3 class="page-title">All Books</h3>
+            <h3 class="page-title">Create New Books</h3>
           </div>
         </div>
       </div>
