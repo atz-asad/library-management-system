@@ -43,15 +43,8 @@ class StudentController extends Controller
             "photo" => "required|image|mimes:jpg,jpeg,png,svg,gif",
         ]);
 
-        //Genarate a file name
-
-        $image = $request->file('photo');
-
-        $fileName = (rand(10, 100)) . '-'. time() . '_' . $image->getClientOriginalExtension();
-
-        $image->move(public_path('media/student'), $fileName);
-
-        // dd($fileName);
+        // Upload Student Photo
+        $studentName = $this->fileUpload($request->file("photo"), 'media/students/');
 
         // data save to db
         DB::table('students') -> insert([
@@ -60,7 +53,7 @@ class StudentController extends Controller
             "phone"          => $request -> phone,
             "student_id"     => $request -> student_id,
             "address"        => $request -> address,
-            "photo"          =>  $fileName,
+            "photo"          => $studentName,
             "created_at"     => now(),
         ]);
 
@@ -74,7 +67,7 @@ class StudentController extends Controller
      */
     public function show(Student $student)
     {
-        //
+        return $this -> uniqueFileName();
     }
 
     /**

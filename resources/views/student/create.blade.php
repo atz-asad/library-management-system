@@ -9,6 +9,9 @@
       <div class="page-header">
         <div class="row">
           <div class="col-sm-12">
+            <a href="{{ route('student.index') }}" class="btn btn-primary">back</a>
+            <br>
+            <br>
             <h3 class="page-title">Crate New Student</h3>
           </div>
         </div>

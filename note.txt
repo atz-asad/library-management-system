@@ -4,9 +4,7 @@
 
 Complete - Library Management System - Part 02
 
-https://www.youtube.com/watch?v=DLuKpjtT2-8
+https://www.youtube.com/watch?v=WeQAo4QcNPo
 running
-50 min running
 
-
-public function store(Request $request) concept clere hoi ni
+54 min  24 tarik full video sas korte hobe

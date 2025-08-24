@@ -44,17 +44,9 @@ class BookController extends Controller
 
         // Upload Cover Photo 
 
-        //Genarate a file name
+        $fileName = $this -> fileUpload($request->file("cover"), 'media/books/');
 
-        $image = $request->file('cover');
 
-        $fileName = md5(rand(1000, 100000) . '_' . time()) . '.' . $image->getClientOriginalExtension();
-
-        $image -> move(public_path('media/book'), $fileName);
-
-        // DB::table('galleries') -> insert([
-        //     "image_url" => $fileName,
-        // ]);
 
         // data Store
         DB::table ('books') -> insert([

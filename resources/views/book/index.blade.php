@@ -37,9 +37,14 @@
                   <tbody>
 
                     @foreach ( $books  as $books )
-                    <tr>
+                    <tr style="vertical-align: middle">
                       <td>{{ $loop -> iteration }}</td>
-                      <td>{{ $books -> title }}</td>
+                      <td>
+                        <img style="height: 50px;width: 56px;object-fit:cover;"  src="{{ URL::to('media/books/' . $books -> cover )}}" alt="{{ $books -> title }}">
+
+                        {{ $books -> title }}
+                        
+                      </td>
                       <td>{{ $books -> author }}</td>
                       <td>{{ $books -> copy }}</td>
                       <td>{{ $books -> isbn }}</td>

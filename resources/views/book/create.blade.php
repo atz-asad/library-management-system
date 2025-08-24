@@ -24,6 +24,9 @@
         <div class="col-xl-10 d-flex">
           <div class="card flex-fill">
             <div class="card-header">
+              <a href="{{ route('books.index') }}" class="btn btn-primary">back</a>
+              <br>
+              <br>
               <h4 class="card-title">Add New Book</h4>
             </div>
             <div class="card-body">
