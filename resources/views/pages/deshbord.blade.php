@@ -2,6 +2,7 @@
 @extends('layouts.app')
 
 @section('main')
+
   <!-- Main Wrapper -->
   <div class="main-wrapper">
 
